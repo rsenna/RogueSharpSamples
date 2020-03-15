@@ -55,7 +55,7 @@ namespace RogueSharp.SadConsole.Playground.Main
          Player = new Player();
          SchedulingSystem = new SchedulingSystem();
 
-         MapGenerator mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7, _mapLevel );
+         var mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7, _mapLevel );
          DungeonMap = mapGenerator.CreateMap();
 
          CommandSystem = new CommandSystem();
@@ -108,64 +108,40 @@ namespace RogueSharp.SadConsole.Playground.Main
 
       protected override void Update( GameTime gameTime )
       {
-         bool didPlayerAct = false;
+         _renderRequired = true; // Assume render is required by default.
          _inputState.Update( gameTime );
 
          if ( TargetingSystem.IsPlayerTargeting )
          {
-            _renderRequired = true;
             TargetingSystem.HandleInput( _inputState );
          }
          else if ( CommandSystem.IsPlayerTurn )
          {
-            if ( _inputState.IsKeyPressed( Keys.Up ) )
+            var didPlayerAct = _renderRequired = CommandSystem.HandleInput(_inputState);
+
+            if (didPlayerAct)
             {
-               didPlayerAct = CommandSystem.MovePlayer( Direction.Up );
-            }
-            else if ( _inputState.IsKeyPressed( Keys.Down ) )
-            {
-               didPlayerAct = CommandSystem.MovePlayer( Direction.Down );
-            }
-            else if ( _inputState.IsKeyPressed( Keys.Left ) )
-            {
-               didPlayerAct = CommandSystem.MovePlayer( Direction.Left );
-            }
-            else if ( _inputState.IsKeyPressed( Keys.Right ) )
-            {
-               didPlayerAct = CommandSystem.MovePlayer( Direction.Right );
-            }
-            else if ( _inputState.IsKeyPressed( Keys.Escape ) )
-            {
-               this.Exit();
-            }
-            else if ( _inputState.IsKeyPressed( Keys.OemPeriod ) )
-            {
-               if ( DungeonMap.CanMoveDownToNextLevel() )
+               if (CommandSystem.ExitRequested)
                {
-                  MapGenerator mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7, ++_mapLevel );
+                  Exit();
+               }
+               else if (CommandSystem.NextLevelRequested)
+               {
+                  var mapGenerator = new MapGenerator( _mapWidth, _mapHeight, 20, 13, 7, ++_mapLevel );
                   DungeonMap = mapGenerator.CreateMap();
                   MessageLog = new MessageLog();
                   CommandSystem = new CommandSystem();
-                  this.Window.Title = $"RougeSharp SadConsole Example Game - Level {_mapLevel}";
-                  didPlayerAct = true;
+                  Window.Title = $"RougeSharp SadConsole Example Game - Level {_mapLevel}";
                }
-            }
-            else
-            {
-               didPlayerAct = CommandSystem.HandleInput( _inputState );
-            }
 
-            if ( didPlayerAct )
-            {
-               _renderRequired = true;
                CommandSystem.EndPlayerTurn();
             }
          }
          else
          {
             CommandSystem.ActivateMonsters();
-            _renderRequired = true;
          }
+
          base.Update( gameTime );
       }
 

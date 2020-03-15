@@ -12,6 +12,10 @@ namespace RogueSharp.SadConsole.Playground.Main.Systems
    {
       public bool IsPlayerTurn { get; set; }
 
+      // TODO: Weird - needed to refactor old RogueGame.Update code into HandleInput
+      public bool ExitRequested { get; set; }
+      public bool NextLevelRequested { get; set; }
+
       public bool MovePlayer( Direction direction )
       {
          int x;
@@ -219,6 +223,38 @@ namespace RogueSharp.SadConsole.Playground.Main.Systems
 
       public bool HandleInput( InputState inputState )
       {
+         var didPlayerAct = false;
+
+         if ( inputState.IsKeyPressed( Keys.Up ) )
+         {
+            didPlayerAct = MovePlayer( Direction.Up );
+         }
+         else if ( inputState.IsKeyPressed( Keys.Down ) )
+         {
+            didPlayerAct = MovePlayer( Direction.Down );
+         }
+         else if ( inputState.IsKeyPressed( Keys.Left ) )
+         {
+            didPlayerAct = MovePlayer( Direction.Left );
+         }
+         else if ( inputState.IsKeyPressed( Keys.Right ) )
+         {
+            didPlayerAct = MovePlayer( Direction.Right );
+         }
+         else if ( inputState.IsKeyPressed( Keys.Escape ) )
+         {
+            didPlayerAct = ExitRequested = true;
+         }
+         else if (inputState.IsKeyPressed(Keys.OemPeriod) && RogueGame.DungeonMap.CanMoveDownToNextLevel())
+         {
+            didPlayerAct = NextLevelRequested = true;
+         }
+
+         if (didPlayerAct)
+         {
+            return true;
+         }
+
          if ( inputState.IsKeyPressed( Keys.Q ) )
          {
             return RogueGame.Player.QAbility.Perform();
@@ -235,7 +271,6 @@ namespace RogueSharp.SadConsole.Playground.Main.Systems
          {
             return RogueGame.Player.RAbility.Perform();
          }
-
 
          bool didUseItem = false;
          if ( inputState.IsKeyPressed( Keys.D1 ) )
