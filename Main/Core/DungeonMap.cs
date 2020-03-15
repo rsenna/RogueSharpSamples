@@ -9,11 +9,11 @@ namespace RogueSharp.SadConsole.Playground.Main.Core
     {
         private readonly List<Monster> _monsters;
         private readonly List<TreasurePile> _treasurePiles;
-        public List<Door> Doors;
 
-        public List<Rectangle> Rooms;
-        public Stairs StairsDown;
-        public Stairs StairsUp;
+        public List<Door> Doors { get; }
+        public List<Rectangle> Rooms { get; }
+        public Stairs StairsDown { get; set; }
+        public Stairs StairsUp { get; set; }
 
         public DungeonMap()
         {
@@ -238,7 +238,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Core
             player.DrawInventory(inventoryConsole);
         }
 
-        private void SetConsoleSymbolForCell(Console console, Cell cell)
+        private void SetConsoleSymbolForCell(IRender console, ICell cell)
         {
             if (!cell.IsExplored)
             {

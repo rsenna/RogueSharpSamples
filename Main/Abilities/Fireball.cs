@@ -30,7 +30,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Abilities
                 AttackChance = _attackChance,
                 Name = Name
             };
-            foreach (var cell in map.GetCellsInArea(target.X, target.Y, _area))
+            foreach (var cell in map.GetCellsInCircle(target.X, target.Y, _area))
             {
                 var monster = map.GetMonsterAt(cell.X, cell.Y);
                 if (monster != null)

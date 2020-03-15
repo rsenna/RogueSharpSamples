@@ -148,7 +148,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Systems
             }
         }
 
-        private bool IsPotentialDoor(Cell cell)
+        private bool IsPotentialDoor(ICell cell)
         {
             if (!cell.IsWalkable)
             {

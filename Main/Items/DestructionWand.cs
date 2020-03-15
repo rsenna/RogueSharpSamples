@@ -24,7 +24,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Items
                 AttackChance = 90,
                 Name = "The Void"
             };
-            Cell previousCell = null;
+            ICell previousCell = null;
             foreach (var cell in map.GetCellsAlongLine(player.X, player.Y, edgePoint.X, edgePoint.Y))
             {
                 if (cell.X == player.X && cell.Y == player.Y)

@@ -19,7 +19,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Abilities
             var map = RogueGame.DungeonMap;
             var player = RogueGame.Player;
 
-            foreach (var cell in map.GetCellsInArea(player.X, player.Y, _revealDistance))
+            foreach (var cell in map.GetCellsInCircle(player.X, player.Y, _revealDistance))
             {
                 if (cell.IsWalkable)
                 {

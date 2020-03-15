@@ -90,7 +90,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Systems
             }
         }
 
-        public void MoveMonster(Monster monster, Cell cell)
+        public void MoveMonster(Monster monster, ICell cell)
         {
             if (!RogueGame.DungeonMap.SetActorPosition(monster, cell.X, cell.Y))
             {

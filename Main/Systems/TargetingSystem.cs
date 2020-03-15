@@ -27,7 +27,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Systems
             _selectableTargets = map.GetMonsterLocationsInFieldOfView().ToList();
             _targetable = targetable;
             _cursorPosition = _selectableTargets.FirstOrDefault();
-            if (_cursorPosition == null)
+            if (_cursorPosition == Point.Zero)
             {
                 StopTargeting();
                 return false;
@@ -70,7 +70,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Systems
 
         private void Initialize()
         {
-            _cursorPosition = null;
+            _cursorPosition = Point.Zero;
             _selectableTargets = new List<Point>();
             _currentTargetIndex = 0;
             _area = 0;
@@ -165,7 +165,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Systems
                 var player = RogueGame.Player;
                 if (_selectionType == SelectionType.Area)
                 {
-                    foreach (var cell in map.GetCellsInArea(_cursorPosition.X, _cursorPosition.Y, _area))
+                    foreach (var cell in map.GetCellsInCircle(_cursorPosition.X, _cursorPosition.Y, _area))
                     {
                         mapConsole.CellData.SetBackground(cell.X, cell.Y, Swatch.DbSun);
                     }

@@ -21,7 +21,7 @@ namespace RogueSharp.SadConsole.Playground.Main.Abilities
 
             var monsterLocations = new List<Point>();
 
-            foreach (var cell in map.GetCellsInArea(player.X, player.Y, 1))
+            foreach (var cell in map.GetCellsInCircle(player.X, player.Y, 1))
             foreach (var monsterLocation in map.GetMonsterLocations())
             {
                 if (cell.X == monsterLocation.X && cell.Y == monsterLocation.Y)

@@ -57,11 +57,11 @@ namespace RogueSharp.SadConsole.Playground.Main.Behaviors
             return true;
         }
 
-        private Cell FindClosestUnoccupiedCell(DungeonMap dungeonMap, int x, int y)
+        private ICell FindClosestUnoccupiedCell(IMap dungeonMap, int x, int y)
         {
             for (var i = 1; i < 5; i++)
             {
-                foreach (var cell in dungeonMap.GetBorderCellsInArea(x, y, i))
+                foreach (var cell in dungeonMap.GetBorderCellsInCircle(x, y, i))
                 {
                     if (cell.IsWalkable)
                     {

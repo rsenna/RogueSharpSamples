@@ -40,8 +40,8 @@
       <HintPath>..\packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RogueSharp, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RogueSharp.3.0.0\lib\portable-net40+sl50+win+wpa81+wp80\RogueSharp.dll</HintPath>
+    <Reference Include="RogueSharp, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\RogueSharp.4.2.0\lib\net40\RogueSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SadConsole.Core, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
