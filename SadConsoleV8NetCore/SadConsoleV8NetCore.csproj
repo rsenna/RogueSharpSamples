@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>RogueSharpSamples.SadConsoleV8NetCore</AssemblyName>
+    <RootNamespace>RogueSharpSamples.SadConsoleV8NetCore</RootNamespace>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.2" />
+    <PackageReference Include="RogueSharp" Version="4.2.0" />
+    <PackageReference Include="SadConsole" Version="8.99.0" />
+  </ItemGroup>
+
+</Project>
