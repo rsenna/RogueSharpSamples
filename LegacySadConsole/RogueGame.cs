@@ -70,6 +70,7 @@ namespace RogueSharpSamples.LegacySadConsole
                 }
 
                 Engine.DefaultFont.ResizeGraphicsDeviceManager(graphics, ScreenWidth, ScreenHeight, 0, 0);
+
                 Engine.UseMouse = true;
                 Engine.UseKeyboard = true;
 
@@ -109,6 +110,7 @@ namespace RogueSharpSamples.LegacySadConsole
             base.Initialize();
         }
 
+        // TODO: Monsters seem to move slowly, improve
         protected override void Update(GameTime gameTime)
         {
             _renderRequired = true; // Assume render is required by default.
@@ -120,7 +122,8 @@ namespace RogueSharpSamples.LegacySadConsole
             }
             else if (CommandSystem.IsPlayerTurn)
             {
-                var didPlayerAct = _renderRequired = CommandSystem.HandleInput(_inputState);
+                // TODO: Removed _renderRequired = didPlayerAct optimization, is it needed?
+                var didPlayerAct = CommandSystem.HandleInput(_inputState);
 
                 if (didPlayerAct)
                 {
