@@ -1,9 +1,9 @@
 # Purpose #
-This repository serves as a complete sample game using RougeSharp and SadConsole. It is a direct port of the RogueSharp v3 tutorial from RLNET to SadConsole. Find out more at http://roguesharp.wordpress.com/
+This repository serves as a complete sample game using RogueSharp and SadConsole. It is a direct port of the RogueSharp v3 tutorial from RLNET to SadConsole. Find out more at http://roguesharp.wordpress.com/
 
 ## Additional Resources ##
 
-- [Creating a Rougelike Game in C#](http://roguesharp.wordpress.com/ "Creating a Roguelike Game in C#")
+- [Creating a Roguelike Game in C#](http://roguesharp.wordpress.com/ "Creating a Roguelike Game in C#")
 - [SadConsole Tutorials and Source](https://github.com/Thraka/SadConsole/wiki "SadConsole Tutorials")
 - [RogueBasin](http://www.roguebasin.com/ "RogueBasin")
 	- [Articles of interest for Roguelike developers](http://www.roguebasin.com/index.php?title=Articles "Roguelike developer articles")
