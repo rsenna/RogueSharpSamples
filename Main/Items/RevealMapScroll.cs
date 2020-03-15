@@ -2,31 +2,32 @@
 
 namespace RogueSharp.SadConsole.Playground.Main.Items
 {
-   public class RevealMapScroll : Item
-   {
-      public RevealMapScroll()
-      {
-         Name = "Magic Map";
-         RemainingUses = 1;
-      }
+    public class RevealMapScroll : Item
+    {
+        public RevealMapScroll()
+        {
+            Name = "Magic Map";
+            RemainingUses = 1;
+        }
 
-      protected override bool UseItem()
-      {
-         DungeonMap map = RogueGame.DungeonMap;
+        protected override bool UseItem()
+        {
+            var map = RogueGame.DungeonMap;
 
-         RogueGame.MessageLog.Add( $"{RogueGame.Player.Name} reads a {Name} and gains knowledge of the surrounding area" );
+            RogueGame.MessageLog.Add(
+                $"{RogueGame.Player.Name} reads a {Name} and gains knowledge of the surrounding area");
 
-         foreach ( Cell cell in map.GetAllCells() )
-         {
-            if ( cell.IsWalkable )
+            foreach (var cell in map.GetAllCells())
             {
-               map.SetCellProperties( cell.X, cell.Y, cell.IsTransparent, cell.IsWalkable, true );
+                if (cell.IsWalkable)
+                {
+                    map.SetCellProperties(cell.X, cell.Y, cell.IsTransparent, cell.IsWalkable, true);
+                }
             }
-         }
-         
-         RemainingUses--;
 
-         return true;
-      }
-   }
+            RemainingUses--;
+
+            return true;
+        }
+    }
 }

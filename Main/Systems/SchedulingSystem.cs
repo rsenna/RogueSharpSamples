@@ -4,67 +4,69 @@ using RogueSharp.SadConsole.Playground.Main.Interfaces;
 
 namespace RogueSharp.SadConsole.Playground.Main.Systems
 {
-   public class SchedulingSystem
-   {
-      private int _time;
-      private readonly SortedDictionary<int, List<IScheduleable>> _scheduleables;
+    public class SchedulingSystem
+    {
+        private readonly SortedDictionary<int, List<IScheduleable>> _scheduleables;
+        private int _time;
 
-      public SchedulingSystem()
-      {
-         _time = 0;
-         _scheduleables = new SortedDictionary<int, List<IScheduleable>>();
-      }
+        public SchedulingSystem()
+        {
+            _time = 0;
+            _scheduleables = new SortedDictionary<int, List<IScheduleable>>();
+        }
 
-      public void Add( IScheduleable actor )
-      {
-         int key = _time + actor.Time;
-         if ( !_scheduleables.ContainsKey( key ) )
-         {
-            _scheduleables.Add( key, new List<IScheduleable>() );
-         }
-         _scheduleables[key].Add( actor );
-      }
-
-      public void Remove( IScheduleable scheduleable )
-      {
-         KeyValuePair<int, List<IScheduleable>> scheduleableListFound = new KeyValuePair<int, List<IScheduleable>>( -1, null );
-
-         foreach ( var scheduleablesList in _scheduleables )
-         {
-            if ( scheduleablesList.Value.Contains( scheduleable ) )
+        public void Add(IScheduleable actor)
+        {
+            var key = _time + actor.Time;
+            if (!_scheduleables.ContainsKey(key))
             {
-               scheduleableListFound = scheduleablesList;
-               break;
+                _scheduleables.Add(key, new List<IScheduleable>());
             }
-         }
-         if ( scheduleableListFound.Value != null )
-         {
-            scheduleableListFound.Value.Remove( scheduleable );
-            if ( scheduleableListFound.Value.Count <= 0 )
+
+            _scheduleables[key].Add(actor);
+        }
+
+        public void Remove(IScheduleable scheduleable)
+        {
+            var scheduleableListFound = new KeyValuePair<int, List<IScheduleable>>(-1, null);
+
+            foreach (var scheduleablesList in _scheduleables)
             {
-               _scheduleables.Remove( scheduleableListFound.Key );
+                if (scheduleablesList.Value.Contains(scheduleable))
+                {
+                    scheduleableListFound = scheduleablesList;
+                    break;
+                }
             }
-         }
-      }
 
-      public IScheduleable Get()
-      {
-         var firstScheduleableGroup = _scheduleables.First();
-         var firstScheduleable = firstScheduleableGroup.Value.First();
-         Remove( firstScheduleable );
-         _time = firstScheduleableGroup.Key;
-         return firstScheduleable;
-      }
+            if (scheduleableListFound.Value != null)
+            {
+                scheduleableListFound.Value.Remove(scheduleable);
+                if (scheduleableListFound.Value.Count <= 0)
+                {
+                    _scheduleables.Remove(scheduleableListFound.Key);
+                }
+            }
+        }
 
-      public int GetTime()
-      {
-         return _time;
-      }
+        public IScheduleable Get()
+        {
+            var firstScheduleableGroup = _scheduleables.First();
+            var firstScheduleable = firstScheduleableGroup.Value.First();
+            Remove(firstScheduleable);
+            _time = firstScheduleableGroup.Key;
+            return firstScheduleable;
+        }
 
-      public void Clear()
-      {
-         _time = 0;
-         _scheduleables.Clear();
-      }
-   }
+        public int GetTime()
+        {
+            return _time;
+        }
+
+        public void Clear()
+        {
+            _time = 0;
+            _scheduleables.Clear();
+        }
+    }
 }

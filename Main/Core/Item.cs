@@ -1,69 +1,70 @@
 ﻿using Microsoft.Xna.Framework;
 using RogueSharp.SadConsole.Playground.Main.Interfaces;
 using SadConsole.Consoles;
+using IDrawable = RogueSharp.SadConsole.Playground.Main.Interfaces.IDrawable;
 
 namespace RogueSharp.SadConsole.Playground.Main.Core
 {
-   public class Item : IItem, ITreasure, Interfaces.IDrawable
-   {
-      public Item()
-      {
-         Symbol = '!';
-         Color = Color.Yellow;
-      }
+    public class Item : IItem, ITreasure, IDrawable
+    {
+        public Item()
+        {
+            Symbol = '!';
+            Color = Color.Yellow;
+        }
 
-      public string Name { get; protected set; }
-      public int RemainingUses { get; protected set; }
+        public Color Color { get; set; }
 
-      public bool Use()
-      {
-         return UseItem();
-      }
+        public char Symbol { get; set; }
 
-      protected virtual bool UseItem()
-      {
-         return false;
-      }
+        public int X { get; set; }
 
-      public bool PickUp( IActor actor )
-      {
-         Player player = actor as Player;
+        public int Y { get; set; }
 
-         if ( player != null )
-         {
-            if ( player.AddItem( this ) )
+        public void Draw(Console console, IMap map)
+        {
+            if (!map.IsExplored(X, Y))
             {
-               RogueGame.MessageLog.Add( $"{actor.Name} picked up {Name}" );
-               return true;
+                return;
             }
-         }
 
-         return false;
-      }
+            if (map.IsInFov(X, Y))
+            {
+                console.CellData.SetCharacter(X, Y, Symbol, Color, Colors.FloorBackgroundFov);
+            }
+            else
+            {
+                console.CellData.SetCharacter(X, Y, Symbol, Color.Multiply(Color.Gray, 0.5f), Colors.FloorBackground);
+            }
+        }
 
-      public Color Color { get; set; }
+        public string Name { get; protected set; }
+        public int RemainingUses { get; protected set; }
 
-      public char Symbol { get; set; }
+        public bool Use()
+        {
+            return UseItem();
+        }
 
-      public int X { get; set; }
+        public bool PickUp(IActor actor)
+        {
+            var player = actor as Player;
 
-      public int Y { get; set; }
+            if (player != null)
+            {
+                if (player.AddItem(this))
+                {
+                    RogueGame.MessageLog.Add($"{actor.Name} picked up {Name}");
+                    return true;
+                }
+            }
 
-      public void Draw( Console console, IMap map )
-      {
-         if ( !map.IsExplored( X, Y ) )
-         {
-            return;
-         }
+            return false;
+        }
 
-         if ( map.IsInFov( X, Y ) )
-         {
-            console.CellData.SetCharacter( X, Y, Symbol, Color, Colors.FloorBackgroundFov );
-         }
-         else
-         {
-            console.CellData.SetCharacter( X, Y, Symbol, Color.Multiply( Color.Gray, 0.5f ), Colors.FloorBackground );
-         }
-      }
-   }
+        protected virtual bool UseItem()
+        {
+            return false;
+        }
+    }
 }

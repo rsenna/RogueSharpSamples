@@ -4,48 +4,48 @@ using RogueSharp.SadConsole.Playground.Main.Systems;
 
 namespace RogueSharp.SadConsole.Playground.Main.Behaviors
 {
-   public class RunAway : IBehavior
-   {
-      public bool Act( Monster monster, CommandSystem commandSystem )
-      {
-         DungeonMap dungeonMap = RogueGame.DungeonMap;
-         Player player = RogueGame.Player;
+    public class RunAway : IBehavior
+    {
+        public bool Act(Monster monster, CommandSystem commandSystem)
+        {
+            var dungeonMap = RogueGame.DungeonMap;
+            var player = RogueGame.Player;
 
-         // Set the cells the monster and player are on to walkable so the pathfinder doesn't bail early
-         dungeonMap.SetIsWalkable( monster.X, monster.Y, true );
-         dungeonMap.SetIsWalkable( player.X, player.Y, true );
+            // Set the cells the monster and player are on to walkable so the pathfinder doesn't bail early
+            dungeonMap.SetIsWalkable(monster.X, monster.Y, true);
+            dungeonMap.SetIsWalkable(player.X, player.Y, true);
 
-         GoalMap goalMap = new GoalMap( dungeonMap );
-         goalMap.AddGoal( player.X, player.Y, 0 );
+            var goalMap = new GoalMap(dungeonMap);
+            goalMap.AddGoal(player.X, player.Y, 0);
 
-         Path path = null;
-         try
-         {
-            path = goalMap.FindPathAvoidingGoals( monster.X, monster.Y );
-         }
-         catch ( PathNotFoundException )
-         {
-            RogueGame.MessageLog.Add( $"{monster.Name} cowers in fear" );
-         }
-
-
-         // Reset the cell the monster and player are on  back to not walkable
-         dungeonMap.SetIsWalkable( monster.X, monster.Y, false );
-         dungeonMap.SetIsWalkable( player.X, player.Y, false );
-
-         if ( path != null )
-         {
+            Path path = null;
             try
             {
-               commandSystem.MoveMonster( monster, path.StepForward() );
+                path = goalMap.FindPathAvoidingGoals(monster.X, monster.Y);
             }
-            catch ( NoMoreStepsException )
+            catch (PathNotFoundException)
             {
-               RogueGame.MessageLog.Add( $"{monster.Name} cowers in fear" );
+                RogueGame.MessageLog.Add($"{monster.Name} cowers in fear");
             }
-         }
 
-         return true;
-      }
-   }
+
+            // Reset the cell the monster and player are on  back to not walkable
+            dungeonMap.SetIsWalkable(monster.X, monster.Y, false);
+            dungeonMap.SetIsWalkable(player.X, player.Y, false);
+
+            if (path != null)
+            {
+                try
+                {
+                    commandSystem.MoveMonster(monster, path.StepForward());
+                }
+                catch (NoMoreStepsException)
+                {
+                    RogueGame.MessageLog.Add($"{monster.Name} cowers in fear");
+                }
+            }
+
+            return true;
+        }
+    }
 }

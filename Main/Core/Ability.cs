@@ -1,84 +1,84 @@
 ﻿using Microsoft.Xna.Framework;
 using RogueSharp.SadConsole.Playground.Main.Interfaces;
 using SadConsole.Consoles;
+using IDrawable = RogueSharp.SadConsole.Playground.Main.Interfaces.IDrawable;
 
 namespace RogueSharp.SadConsole.Playground.Main.Core
 {
-   public class Ability : IAbility, ITreasure, Interfaces.IDrawable
-   {
-      public Ability()
-      {
-         Symbol = '*';
-         Color = Color.Yellow;
-      }
+    public abstract class Ability : IAbility, ITreasure, IDrawable
+    {
+        protected Ability()
+        {
+            Symbol = '*';
+            Color = Color.Yellow;
+        }
 
-      public string Name { get; protected set; }
+        public string Name { get; protected set; }
 
-      public int TurnsToRefresh { get; protected set; }
+        public int TurnsToRefresh { get; protected set; }
 
-      public int TurnsUntilRefreshed { get; protected set; }
+        public int TurnsUntilRefreshed { get; protected set; }
 
-      public bool Perform()
-      {
-         if ( TurnsUntilRefreshed > 0 )
-         {
-            return false;
-         }
-
-         TurnsUntilRefreshed = TurnsToRefresh;
-
-         return PerformAbility();
-      }
-
-      protected virtual bool PerformAbility()
-      {
-         return false;
-      }
-
-
-      public void Tick()
-      {
-         if ( TurnsUntilRefreshed > 0 )
-         {
-            TurnsUntilRefreshed--;
-         }
-      }
-
-      public bool PickUp( IActor actor )
-      {
-         Player player = actor as Player;
-
-         if ( player != null )
-         {
-            if ( player.AddAbility( this ) )
+        public bool Perform()
+        {
+            if (TurnsUntilRefreshed > 0)
             {
-               RogueGame.MessageLog.Add( $"{actor.Name} learned the {Name} ability" );
-               return true;
+                return false;
             }
-         }
 
-         return false;
-      }
+            TurnsUntilRefreshed = TurnsToRefresh;
 
-      public Color Color { get; set; }
-      public char Symbol { get; set; }
-      public int X { get; set; }
-      public int Y { get; set; }
-      public void Draw( Console console, IMap map )
-      {
-         if ( !map.IsExplored( X, Y ) )
-         {
-            return;
-         }
+            return PerformAbility();
+        }
 
-         if ( map.IsInFov( X, Y ) )
-         {
-            console.CellData.SetCharacter( X, Y, Symbol, Color, Colors.FloorBackgroundFov);
-         }
-         else
-         {
-            console.CellData.SetCharacter( X, Y, Symbol, Color.Multiply( Color.Gray, 0.5f ), Colors.FloorBackground );
-         }
-      }
-   }
+        public void Tick()
+        {
+            if (TurnsUntilRefreshed > 0)
+            {
+                TurnsUntilRefreshed--;
+            }
+        }
+
+        public Color Color { get; set; }
+        public char Symbol { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public void Draw(Console console, IMap map)
+        {
+            if (!map.IsExplored(X, Y))
+            {
+                return;
+            }
+
+            if (map.IsInFov(X, Y))
+            {
+                console.CellData.SetCharacter(X, Y, Symbol, Color, Colors.FloorBackgroundFov);
+            }
+            else
+            {
+                console.CellData.SetCharacter(X, Y, Symbol, Color.Multiply(Color.Gray, 0.5f), Colors.FloorBackground);
+            }
+        }
+
+        public bool PickUp(IActor actor)
+        {
+            var player = actor as Player;
+
+            if (player == null)
+            {
+                return false;
+            }
+
+            if (!player.AddAbility(this))
+            {
+                return false;
+            }
+
+            RogueGame.MessageLog.Add($"{actor.Name} learned the {Name} ability");
+            return true;
+        }
+
+        protected virtual bool PerformAbility() => false;
+    }
 }
