@@ -14,6 +14,8 @@ ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample3", "SadConsole-8.99\GoRogue-2.6\Sample3.csproj", "{49BFC229-933C-4205-A482-FCD4C68CC7CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{A45DC026-6F30-491D-9027-AC5A49CF6277}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A45DC026-6F30-491D-9027-AC5A49CF6277}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A45DC026-6F30-491D-9027-AC5A49CF6277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49BFC229-933C-4205-A482-FCD4C68CC7CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49BFC229-933C-4205-A482-FCD4C68CC7CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49BFC229-933C-4205-A482-FCD4C68CC7CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49BFC229-933C-4205-A482-FCD4C68CC7CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
