@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegacySadConsole", "LegacySadConsole\LegacySadConsole.csproj", "{6294F96D-6977-4A46-9516-ED5D009AC6D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample1", "SadConsole-2.5\RogueSharp-4.2\Sample1.csproj", "{6294F96D-6977-4A46-9516-ED5D009AC6D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SadConsoleV8NetCore", "SadConsoleV8NetCore\SadConsoleV8NetCore.csproj", "{A45DC026-6F30-491D-9027-AC5A49CF6277}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample2", "SadConsole-8.99\RogueSharp-4.2\Sample2.csproj", "{A45DC026-6F30-491D-9027-AC5A49CF6277}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

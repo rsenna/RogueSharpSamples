@@ -1,5 +1,13 @@
 # Purpose #
-This repository serves as a complete sample game using RogueSharp and SadConsole. It is a direct port of the RogueSharp v3 tutorial from RLNET to SadConsole. Find out more at http://roguesharp.wordpress.com/
+
+This repository _started_ as a simple fork of https://github.com/FaronBracy/RogueSharpSadConsoleSamples.
+Then I added some refactors. Then I tried to upgrade both RogueSharp and SadConsole.
+
+RogueSharp was easy, hardly any breaking changes. But SadConsole is a whole another story. Original source code was using SadConsole.Core v2.5. In order to move to SadConsole v8 I had to make a lot of changes (still WIP).
+
+I decided to keep both SadConsole versions - it shows how the SadConsole API has changed along time, and I think there's value in being able to easily compare between those two versions.
+
+TODO: Add yet another implementation, using GoRogue instead of RogueSharp.
 
 ## Additional Resources ##
 
@@ -9,14 +17,13 @@ This repository serves as a complete sample game using RogueSharp and SadConsole
 	- [Articles of interest for Roguelike developers](http://www.roguebasin.com/index.php?title=Articles "Roguelike developer articles")
 - [Roguelike Dev Subreddit](https://www.reddit.com/r/roguelikedev)
 
-
 ## License ##
 
-#### RogueSharp RLNET Samples ####
+#### Roguelike C# Samples ####
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Faron Bracy
+Copyright for portions of this project are held by Faron Bracy, 2016. All other copyright are held by Rogério Senna, 2020.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -78,9 +78,9 @@ namespace RogueSharpSamples.SadConsoleV8NetCore
 
             base.Initialize();
 
-            var fontMaster = Global.LoadFont("Fonts/Cheepicus12.font");
-
-            Global.FontDefault = fontMaster.GetFont(Font.FontSizes.One);
+            // TODO: Fix font
+            // var fontMaster = Global.LoadFont("Fonts/Cheepicus12.font");
+            // Global.FontDefault = fontMaster.GetFont(Font.FontSizes.One);
 
             // TODO: Convert to V8
             // Engine.UseMouse = true;
@@ -100,6 +100,14 @@ namespace RogueSharpSamples.SadConsoleV8NetCore
             Global.FocusedConsoles.Push(_statConsole);
             Global.FocusedConsoles.Push(_inventoryConsole);
             Global.FocusedConsoles.Push(_mapConsole);
+
+            // DEBUG:
+            var console = _mapConsole;
+
+            console.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0);
+            console.Print(4, 4, "Hello from SadConsole");
+
+            Global.CurrentScreen = console;
         }
 
         // TODO: Monsters seem to move slowly, improve

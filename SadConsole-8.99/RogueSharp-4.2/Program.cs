@@ -5,7 +5,15 @@ namespace RogueSharpSamples.SadConsoleV8NetCore
 {
     public static class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
+        {
+            using (SadConsole.Game.Instance = new RogueGame())
+            {
+                SadConsole.Game.Instance.Run();
+            }
+        }
+
+        public static void TestMain()
         {
             SadConsole.Game.Create(80, 25);
             SadConsole.Game.OnInitialize = Init;
