@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using SadConsole.Components;
 
 namespace GoRogueSample3.Entities
 {
@@ -8,18 +9,19 @@ namespace GoRogueSample3.Entities
     //yields treasure upon death
     public class Monster : Actor
     {
-        private Random rndNum = new Random();
+        private readonly Random rndNum = new Random();
 
-        public Monster(Color foreground, Color background) : base(foreground, background, 'M')
+        public Monster(Color foreground, Color background)
+            : base(foreground, background, 'M')
         {
             //number of loot to spawn for monster
-            int lootNum = rndNum.Next(1, 4);
+            var lootNum = rndNum.Next(1, 4);
 
-            for (int i = 0; i < lootNum; i++)
+            for (var i = 0; i < lootNum; i++)
             {
                 // monsters are made out of spork, obvs.
-                Item newLoot = new Item(Color.HotPink, Color.Transparent, "spork", 'L', 2);
-                newLoot.Components.Add(new SadConsole.Components.EntityViewSyncComponent());
+                var newLoot = new Item(Color.HotPink, Color.Transparent, "spork", 'L', 2);
+                newLoot.Components.Add(new EntityViewSyncComponent());
                 Inventory.Add(newLoot);
             }
         }

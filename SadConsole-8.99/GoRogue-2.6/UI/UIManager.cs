@@ -1,8 +1,11 @@
 ﻿using System;
+using GoRogue;
 using GoRogueSample3.Entities;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using SadConsole;
 using SadConsole.Controls;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace GoRogueSample3.UI
 {
@@ -10,10 +13,6 @@ namespace GoRogueSample3.UI
     // and makes consoles easily addressable from a central place.
     public class UIManager : ContainerConsole
     {
-        public SadConsole.ScrollingConsole MapConsole;
-        public MessageLogWindow MessageLog;
-        public Window MapWindow;
-
         public UIManager()
         {
             // must be set to true
@@ -23,8 +22,12 @@ namespace GoRogueSample3.UI
 
             // The UIManager becomes the only
             // screen that SadConsole processes
-            Parent = SadConsole.Global.CurrentScreen;
+            Parent = Global.CurrentScreen;
         }
+
+        public ScrollingConsole MapConsole { get; set; }
+        public Window MapWindow { get; set; }
+        public MessageLogWindow MessageLog { get; set; }
 
         // Creates all child consoles to be managed
         public void CreateConsoles()
@@ -49,16 +52,15 @@ namespace GoRogueSample3.UI
         // based on the button pressed.
         private void CheckKeyboard()
         {
-
             // As an example, we'll use the F5 key to make the game full screen
-            if (SadConsole.Global.KeyboardState.IsKeyReleased(Microsoft.Xna.Framework.Input.Keys.F5))
+            if (Global.KeyboardState.IsKeyReleased(Keys.F5))
             {
-                SadConsole.Settings.ToggleFullScreen();
+                Settings.ToggleFullScreen();
             }
 
             // Keyboard movement for Player character: Up arrow
             // Decrement player's Y coordinate by 1
-            if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Up))
+            if (Global.KeyboardState.IsKeyPressed(Keys.Up))
             {
                 Program.CommandManager.MoveActorBy(Program.World.Player, new Point(0, -1));
                 CenterOnActor(Program.World.Player);
@@ -66,7 +68,7 @@ namespace GoRogueSample3.UI
 
             // Keyboard movement for Player character: Down arrow
             // Increment player's Y coordinate by 1
-            if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Down))
+            if (Global.KeyboardState.IsKeyPressed(Keys.Down))
             {
                 Program.CommandManager.MoveActorBy(Program.World.Player, new Point(0, 1));
                 CenterOnActor(Program.World.Player);
@@ -74,7 +76,7 @@ namespace GoRogueSample3.UI
 
             // Keyboard movement for Player character: Left arrow
             // Decrement player's X coordinate by 1
-            if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Left))
+            if (Global.KeyboardState.IsKeyPressed(Keys.Left))
             {
                 Program.CommandManager.MoveActorBy(Program.World.Player, new Point(-1, 0));
                 CenterOnActor(Program.World.Player);
@@ -82,21 +84,21 @@ namespace GoRogueSample3.UI
 
             // Keyboard movement for Player character: Right arrow
             // Increment player's X coordinate by 1
-            if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Right))
+            if (Global.KeyboardState.IsKeyPressed(Keys.Right))
             {
                 Program.CommandManager.MoveActorBy(Program.World.Player, new Point(1, 0));
                 CenterOnActor(Program.World.Player);
             }
 
             // Undo last command: Z
-            if (SadConsole.Global.KeyboardState.IsKeyReleased(Microsoft.Xna.Framework.Input.Keys.Z))
+            if (Global.KeyboardState.IsKeyReleased(Keys.Z))
             {
                 Program.CommandManager.UndoMoveActorBy();
                 CenterOnActor(Program.World.Player);
             }
 
             // Repeat last command: X
-            if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.X))
+            if (Global.KeyboardState.IsKeyPressed(Keys.X))
             {
                 Program.CommandManager.RedoMoveActorBy();
                 CenterOnActor(Program.World.Player);
@@ -151,7 +153,7 @@ namespace GoRogueSample3.UI
             MapConsole.Children.Clear();
 
             // Now pull all of the entities into the MapConsole in bulk
-            foreach (Entity entity in map.Entities.Items)
+            foreach (var entity in map.Entities.Items)
             {
                 MapConsole.Children.Add(entity);
             }
@@ -164,13 +166,13 @@ namespace GoRogueSample3.UI
         }
 
         // Remove an Entity from the MapConsole every time the Map's Entity collection changes
-        public void OnMapEntityRemoved(object sender, GoRogue.ItemEventArgs<Entity> args)
+        public void OnMapEntityRemoved(object sender, ItemEventArgs<Entity> args)
         {
             MapConsole.Children.Remove(args.Item);
         }
 
         // Add an Entity to the MapConsole every time the Map's Entity collection changes
-        public void OnMapEntityAdded(object sender, GoRogue.ItemEventArgs<Entity> args)
+        public void OnMapEntityAdded(object sender, ItemEventArgs<Entity> args)
         {
             MapConsole.Children.Add(args.Item);
         }
@@ -179,7 +181,7 @@ namespace GoRogueSample3.UI
         private void LoadMap(Map map)
         {
             // First load the map's tiles into the console
-            MapConsole = new SadConsole.ScrollingConsole(Program.World.CurrentMap.Width, Program.World.CurrentMap.Height, Global.FontDefault, new Rectangle(0, 0, Program.GameWidth, Program.GameHeight), map.Tiles);
+            MapConsole = new ScrollingConsole(Program.World.CurrentMap.Width, Program.World.CurrentMap.Height, Global.FontDefault, new Rectangle(0, 0, Program.GameWidth, Program.GameHeight), map.Tiles);
 
             // Now Sync all of the map's entities
             SyncMapEntities(map);
@@ -197,8 +199,8 @@ namespace GoRogueSample3.UI
 
             //make console short enough to show the window title
             //and borders, and position it away from borders
-            int mapConsoleWidth = width - 2;
-            int mapConsoleHeight = height - 2;
+            var mapConsoleWidth = width - 2;
+            var mapConsoleHeight = height - 2;
 
             // Resize the Map Console's ViewPort to fit inside of the window's borders snugly
             MapConsole.ViewPort = new Rectangle(0, 0, mapConsoleWidth, mapConsoleHeight);
@@ -207,7 +209,7 @@ namespace GoRogueSample3.UI
             MapConsole.Position = new Point(1, 1);
 
             //close window button
-            Button closeButton = new Button(3, 1);
+            var closeButton = new Button(3);
             closeButton.Position = new Point(0, 0);
             closeButton.Text = "[X]";
 

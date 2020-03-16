@@ -4,9 +4,10 @@ namespace GoRogueSample3.Entities
 {
     // Creates a new player
     // Default colour is LightYellow and glyph is @
-	public class Player : Actor
+    public class Player : Actor
     {
-        public Player(Color foreground, Color background) : base(foreground, background, '@')
+        public Player(Color foreground, Color background)
+            : base(foreground, background, '@')
         {
             Attack = 10;
             AttackChance = 40;
