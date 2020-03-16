@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample1", "SadConsole-2.5\R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample2", "SadConsole-8.99\RogueSharp-4.2\Sample2.csproj", "{A45DC026-6F30-491D-9027-AC5A49CF6277}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "etc", "etc", "{1F066A5E-C13F-4016-A290-5AAB84981F7E}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+	.gitattributes = .gitattributes
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
