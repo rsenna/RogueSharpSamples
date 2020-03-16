@@ -23,6 +23,7 @@ namespace RogueSharpSample2
         private const int InventoryWidth = 80;
         private const int InventoryHeight = 11;
 
+        private static Console _mainConsole;
         private static Console _mapConsole;
         private static Console _messageConsole;
         private static Console _statConsole;
@@ -79,13 +80,10 @@ namespace RogueSharpSample2
             base.Initialize();
 
             // TODO: Fix font
-            // var fontMaster = Global.LoadFont("Fonts/Cheepicus12.font");
-            // Global.FontDefault = fontMaster.GetFont(Font.FontSizes.One);
+            var fontMaster = Global.LoadFont("Fonts/Cheepicus12.font");
+            Global.FontDefault = fontMaster.GetFont(Font.FontSizes.One);
 
-            // TODO: Convert to V8
-            // Engine.UseMouse = true;
-            // Engine.UseKeyboard = true;
-
+            _mainConsole = new ContainerConsole();
             _mapConsole = new Console(MapWidth, MapHeight);
             _messageConsole = new Console(MessageWidth, MessageHeight);
             _statConsole = new Console(StatWidth, StatHeight);
@@ -96,18 +94,15 @@ namespace RogueSharpSample2
             _statConsole.Position = new Point(MapWidth, 0);
             _inventoryConsole.Position = new Point(0, 0);
 
-            Global.FocusedConsoles.Push(_messageConsole);
-            Global.FocusedConsoles.Push(_statConsole);
-            Global.FocusedConsoles.Push(_inventoryConsole);
-            Global.FocusedConsoles.Push(_mapConsole);
+            _mainConsole.Children.Add(_mapConsole);
+            _mainConsole.Children.Add(_messageConsole);
+            _mainConsole.Children.Add(_statConsole);
+            _mainConsole.Children.Add(_inventoryConsole);
 
-            // DEBUG:
-            var console = _mapConsole;
+            _mainConsole.UseMouse = true;
+            _mainConsole.UseKeyboard = true;
 
-            console.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0);
-            console.Print(4, 4, "Hello from SadConsole");
-
-            Global.CurrentScreen = console;
+            Global.CurrentScreen = _mainConsole;
         }
 
         // TODO: Monsters seem to move slowly, improve
