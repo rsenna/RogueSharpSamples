@@ -1,4 +1,4 @@
-﻿namespace RogueSharpSamples.LegacySadConsole.Equipment
+﻿namespace RogueSharpSample1.Equipment
 {
     public class BodyEquipment : Core.Equipment
     {

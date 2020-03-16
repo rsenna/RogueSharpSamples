@@ -2,7 +2,7 @@
 using RogueSharp;
 using SadConsole.Consoles;
 
-namespace RogueSharpSamples.LegacySadConsole.Interfaces
+namespace RogueSharpSample1.Interfaces
 {
     public interface IDrawable
     {

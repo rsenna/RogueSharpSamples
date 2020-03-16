@@ -1,7 +1,7 @@
-﻿using RogueSharpSamples.SadConsoleV8NetCore.Core;
-using RogueSharpSamples.SadConsoleV8NetCore.Systems;
+﻿using RogueSharpSample2.Core;
+using RogueSharpSample2.Systems;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Interfaces
+namespace RogueSharpSample2.Interfaces
 {
     public interface IBehavior
     {

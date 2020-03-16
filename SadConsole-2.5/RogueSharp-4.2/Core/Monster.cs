@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
-using RogueSharpSamples.LegacySadConsole.Behaviors;
-using RogueSharpSamples.LegacySadConsole.Monsters;
-using RogueSharpSamples.LegacySadConsole.Systems;
+using RogueSharpSample1.Behaviors;
+using RogueSharpSample1.Monsters;
+using RogueSharpSample1.Systems;
 using SadConsole;
 using Console = SadConsole.Consoles.Console;
 
-namespace RogueSharpSamples.LegacySadConsole.Core
+namespace RogueSharpSample1.Core
 {
     public class Monster : Actor
     {

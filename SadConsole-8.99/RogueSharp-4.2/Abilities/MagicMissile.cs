@@ -1,8 +1,8 @@
 ﻿using RogueSharp;
-using RogueSharpSamples.SadConsoleV8NetCore.Core;
-using RogueSharpSamples.SadConsoleV8NetCore.Interfaces;
+using RogueSharpSample2.Core;
+using RogueSharpSample2.Interfaces;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Abilities
+namespace RogueSharpSample2.Abilities
 {
     public class MagicMissile : Ability, ITargetable
     {

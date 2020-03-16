@@ -1,7 +1,7 @@
-﻿using RogueSharpSamples.SadConsoleV8NetCore.Core;
-using RogueSharpSamples.SadConsoleV8NetCore.Items;
+﻿using RogueSharpSample2.Core;
+using RogueSharpSample2.Items;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Systems
+namespace RogueSharpSample2.Systems
 {
     public static class ItemGenerator
     {

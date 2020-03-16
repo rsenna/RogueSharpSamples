@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Core
+namespace RogueSharpSample2.Core
 {
     public static class Colors
     {

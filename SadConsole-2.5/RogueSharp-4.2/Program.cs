@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RogueSharpSamples.LegacySadConsole
+namespace RogueSharpSample1
 {
     public static class Program
     {

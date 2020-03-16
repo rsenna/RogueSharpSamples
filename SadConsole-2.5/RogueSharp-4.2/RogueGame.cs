@@ -2,13 +2,13 @@
 using System.IO;
 using Microsoft.Xna.Framework;
 using RogueSharp.Random;
-using RogueSharpSamples.LegacySadConsole.Core;
-using RogueSharpSamples.LegacySadConsole.Items;
-using RogueSharpSamples.LegacySadConsole.Systems;
+using RogueSharpSample1.Core;
+using RogueSharpSample1.Items;
+using RogueSharpSample1.Systems;
 using SadConsole;
 using Console = SadConsole.Consoles.Console;
 
-namespace RogueSharpSamples.LegacySadConsole
+namespace RogueSharpSample1
 {
     public class RogueGame : Game
     {

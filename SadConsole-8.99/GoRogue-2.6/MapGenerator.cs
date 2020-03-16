@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SadConsoleRLTutorial.Tiles;
+using GoRogueSample3.Tiles;
 using Microsoft.Xna.Framework;
 
-namespace SadConsoleRLTutorial
+namespace GoRogueSample3
 {
     // based on tunnelling room generation algorithm
     // from RogueSharp tutorial

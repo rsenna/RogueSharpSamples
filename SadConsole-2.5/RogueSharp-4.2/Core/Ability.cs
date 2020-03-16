@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using RogueSharp;
-using RogueSharpSamples.LegacySadConsole.Interfaces;
+using RogueSharpSample1.Interfaces;
 using SadConsole.Consoles;
 
-namespace RogueSharpSamples.LegacySadConsole.Core
+namespace RogueSharpSample1.Core
 {
     public abstract class Ability : IAbility, ITreasure, Interfaces.IDrawable
     {

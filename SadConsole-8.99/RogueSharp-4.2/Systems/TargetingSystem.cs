@@ -2,11 +2,11 @@
 using System.Linq;
 using Microsoft.Xna.Framework.Input;
 using RogueSharp;
-using RogueSharpSamples.SadConsoleV8NetCore.Core;
-using RogueSharpSamples.SadConsoleV8NetCore.Interfaces;
+using RogueSharpSample2.Core;
+using RogueSharpSample2.Interfaces;
 using SadConsole;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Systems
+namespace RogueSharpSample2.Systems
 {
     public class TargetingSystem
     {

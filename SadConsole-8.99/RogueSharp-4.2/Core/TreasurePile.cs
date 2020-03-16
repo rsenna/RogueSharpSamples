@@ -1,6 +1,6 @@
-﻿using RogueSharpSamples.SadConsoleV8NetCore.Interfaces;
+﻿using RogueSharpSample2.Interfaces;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Core
+namespace RogueSharpSample2.Core
 {
     public class TreasurePile
     {

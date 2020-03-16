@@ -2,11 +2,11 @@
 using Microsoft.Xna.Framework.Input;
 using RogueSharp;
 using RogueSharp.DiceNotation;
-using RogueSharpSamples.LegacySadConsole.Core;
-using RogueSharpSamples.LegacySadConsole.Equipment;
-using RogueSharpSamples.LegacySadConsole.Items;
+using RogueSharpSample1.Core;
+using RogueSharpSample1.Equipment;
+using RogueSharpSample1.Items;
 
-namespace RogueSharpSamples.LegacySadConsole.Systems
+namespace RogueSharpSample1.Systems
 {
     public class CommandSystem
     {

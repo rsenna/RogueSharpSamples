@@ -1,8 +1,8 @@
 using RogueSharp;
-using RogueSharpSamples.SadConsoleV8NetCore.Core;
-using RogueSharpSamples.SadConsoleV8NetCore.Monsters;
+using RogueSharpSample2.Core;
+using RogueSharpSample2.Monsters;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Systems
+namespace RogueSharpSample2.Systems
 {
     public static class ActorGenerator
     {

@@ -13,7 +13,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-namespace RogueSharpSamples.LegacySadConsole.Systems
+namespace RogueSharpSample1.Systems
 {
     /// <summary>
     ///     Helper for reading input from keyboard, gamepad, and touch input. This class

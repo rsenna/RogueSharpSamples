@@ -3,8 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>RogueSharpSamples.SadConsoleV8NetCore</AssemblyName>
-    <RootNamespace>RogueSharpSamples.SadConsoleV8NetCore</RootNamespace>
+    <RootNamespace>RogueSharpSample2</RootNamespace>
     <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
   </PropertyGroup>
 

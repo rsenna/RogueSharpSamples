@@ -1,7 +1,7 @@
-﻿using RogueSharpSamples.LegacySadConsole.Core;
-using RogueSharpSamples.LegacySadConsole.Systems;
+﻿using RogueSharpSample1.Core;
+using RogueSharpSample1.Systems;
 
-namespace RogueSharpSamples.LegacySadConsole.Interfaces
+namespace RogueSharpSample1.Interfaces
 {
     public interface IBehavior
     {

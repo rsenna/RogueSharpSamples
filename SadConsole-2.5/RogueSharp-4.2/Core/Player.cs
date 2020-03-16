@@ -1,12 +1,12 @@
 using System;
 using Microsoft.Xna.Framework;
-using RogueSharpSamples.LegacySadConsole.Abilities;
-using RogueSharpSamples.LegacySadConsole.Equipment;
-using RogueSharpSamples.LegacySadConsole.Interfaces;
-using RogueSharpSamples.LegacySadConsole.Items;
+using RogueSharpSample1.Abilities;
+using RogueSharpSample1.Equipment;
+using RogueSharpSample1.Interfaces;
+using RogueSharpSample1.Items;
 using Console = SadConsole.Consoles.Console;
 
-namespace RogueSharpSamples.LegacySadConsole.Core
+namespace RogueSharpSample1.Core
 {
     public class Player : Actor
     {

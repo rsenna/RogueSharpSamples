@@ -1,8 +1,8 @@
 ﻿using RogueSharp.DiceNotation;
-using RogueSharpSamples.LegacySadConsole.Core;
-using RogueSharpSamples.LegacySadConsole.Equipment;
+using RogueSharpSample1.Core;
+using RogueSharpSample1.Equipment;
 
-namespace RogueSharpSamples.LegacySadConsole.Items
+namespace RogueSharpSample1.Items
 {
     public class Whetstone : Item
     {

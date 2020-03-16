@@ -1,8 +1,8 @@
 ﻿using RogueSharp;
-using RogueSharpSamples.LegacySadConsole.Core;
-using RogueSharpSamples.LegacySadConsole.Interfaces;
+using RogueSharpSample1.Core;
+using RogueSharpSample1.Interfaces;
 
-namespace RogueSharpSamples.LegacySadConsole.Abilities
+namespace RogueSharpSample1.Abilities
 {
     public class LightningBolt : Ability, ITargetable
     {

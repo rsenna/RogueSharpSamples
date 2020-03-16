@@ -1,10 +1,9 @@
-﻿using System;
-using SadConsoleRLTutorial.Entities;
-using Microsoft.Xna.Framework;
-using System.Text;
+﻿using System.Text;
 using GoRogue.DiceNotation;
+using GoRogueSample3.Entities;
+using Microsoft.Xna.Framework;
 
-namespace SadConsoleRLTutorial.Commands
+namespace GoRogueSample3.Commands
 {
     // Contains all generic actions performed on entities and tiles
     // including combat, movement, and so on.
@@ -36,10 +35,10 @@ namespace SadConsoleRLTutorial.Commands
             int blocks = ResolveDefense(defender, hits, attackMessage, defenseMessage);
 
             // Display the outcome of the attack & defense
-            GameLoop.UIManager.MessageLog.Add(attackMessage.ToString());
+            Program.UIManager.MessageLog.Add(attackMessage.ToString());
             if (!string.IsNullOrWhiteSpace(defenseMessage.ToString()))
             {
-                GameLoop.UIManager.MessageLog.Add(defenseMessage.ToString());
+                Program.UIManager.MessageLog.Add(defenseMessage.ToString());
             }
 
             int damage = hits - blocks;
@@ -115,7 +114,7 @@ namespace SadConsoleRLTutorial.Commands
             if (damage > 0)
             {
                 defender.Health = defender.Health - damage;
-                GameLoop.UIManager.MessageLog.Add($" {defender.Name} was hit for {damage} damage");
+                Program.UIManager.MessageLog.Add($" {defender.Name} was hit for {damage} damage");
                 if (defender.Health <= 0)
                 {
                     ResolveDeath(defender);
@@ -123,7 +122,7 @@ namespace SadConsoleRLTutorial.Commands
             }
             else
             {
-                GameLoop.UIManager.MessageLog.Add($"{defender.Name} blocked all damage!");
+                Program.UIManager.MessageLog.Add($"{defender.Name} blocked all damage!");
             }
         }
 
@@ -147,7 +146,7 @@ namespace SadConsoleRLTutorial.Commands
                     item.Position = defender.Position;
 
                     // Now let the MultiSpatialMap know that the Item is visible
-                    GameLoop.World.CurrentMap.Add(item);
+                    Program.World.CurrentMap.Add(item);
 
                     // Append the item to the deathMessage
                     deathMessage.Append(", " + item.Name);
@@ -162,10 +161,10 @@ namespace SadConsoleRLTutorial.Commands
             deathMessage.Append(".");
 
             // actor goes bye-bye
-            GameLoop.World.CurrentMap.Remove(defender);
+            Program.World.CurrentMap.Remove(defender);
 
             // Now show the deathMessage in the messagelog
-            GameLoop.UIManager.MessageLog.Add(deathMessage.ToString());
+            Program.UIManager.MessageLog.Add(deathMessage.ToString());
         }
 
         // Move the actor BY +/- X&Y coordinates
@@ -223,7 +222,7 @@ namespace SadConsoleRLTutorial.Commands
             // Add the item to the Actor's inventory list
             // and then destroy it
             actor.Inventory.Add(item);
-            GameLoop.UIManager.MessageLog.Add($"{actor.Name} picked up {item.Name}");
+            Program.UIManager.MessageLog.Add($"{actor.Name} picked up {item.Name}");
             item.Destroy();
         }
     }

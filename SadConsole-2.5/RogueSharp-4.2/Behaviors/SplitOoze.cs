@@ -1,10 +1,10 @@
 ﻿using RogueSharp;
-using RogueSharpSamples.LegacySadConsole.Core;
-using RogueSharpSamples.LegacySadConsole.Interfaces;
-using RogueSharpSamples.LegacySadConsole.Monsters;
-using RogueSharpSamples.LegacySadConsole.Systems;
+using RogueSharpSample1.Core;
+using RogueSharpSample1.Interfaces;
+using RogueSharpSample1.Monsters;
+using RogueSharpSample1.Systems;
 
-namespace RogueSharpSamples.LegacySadConsole.Behaviors
+namespace RogueSharpSample1.Behaviors
 {
     public class SplitOoze : IBehavior
     {

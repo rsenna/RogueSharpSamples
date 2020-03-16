@@ -1,9 +1,9 @@
 ﻿using RogueSharp.DiceNotation;
-using RogueSharpSamples.SadConsoleV8NetCore.Behaviors;
-using RogueSharpSamples.SadConsoleV8NetCore.Core;
-using RogueSharpSamples.SadConsoleV8NetCore.Systems;
+using RogueSharpSample2.Behaviors;
+using RogueSharpSample2.Core;
+using RogueSharpSample2.Systems;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Monsters
+namespace RogueSharpSample2.Monsters
 {
     public class Goblin : Monster
     {

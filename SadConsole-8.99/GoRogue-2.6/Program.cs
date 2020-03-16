@@ -1,17 +1,11 @@
-using System;
-using SadConsole;
-using Console = SadConsole.Console;
+using GoRogueSample3.Commands;
+using GoRogueSample3.UI;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using SadConsoleRLTutorial.Entities;
-using SadConsoleRLTutorial.UI;
-using SadConsoleRLTutorial.Commands;
 
-namespace SadConsoleRLTutorial
+namespace GoRogueSample3
 {
-    class GameLoop
+    public class Program
     {
-
         public const int GameWidth = 80;
         public const int GameHeight = 25;
 

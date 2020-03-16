@@ -1,7 +1,7 @@
-﻿using RogueSharpSamples.LegacySadConsole.Abilities;
-using RogueSharpSamples.LegacySadConsole.Core;
+﻿using RogueSharpSample1.Abilities;
+using RogueSharpSample1.Core;
 
-namespace RogueSharpSamples.LegacySadConsole.Systems
+namespace RogueSharpSample1.Systems
 {
     public static class AbilityGenerator
     {

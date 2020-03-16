@@ -1,7 +1,7 @@
-﻿using RogueSharpSamples.SadConsoleV8NetCore.Core;
-using RogueSharpSamples.SadConsoleV8NetCore.Equipment;
+﻿using RogueSharpSample2.Core;
+using RogueSharpSample2.Equipment;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Items
+namespace RogueSharpSample2.Items
 {
     public class ArmorScroll : Item
     {

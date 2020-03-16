@@ -1,13 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using RogueSharp;
-using RogueSharpSamples.SadConsoleV8NetCore.Equipment;
-using RogueSharpSamples.SadConsoleV8NetCore.Interfaces;
+using RogueSharpSample2.Equipment;
+using RogueSharpSample2.Interfaces;
 using SadConsole;
-using IDrawable = RogueSharpSamples.SadConsoleV8NetCore.Interfaces.IDrawable;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Core
+namespace RogueSharpSample2.Core
 {
-    public class Actor : IActor, IDrawable, IScheduleable
+    public class Actor : IActor, Interfaces.IDrawable, IScheduleable
     {
         private int _attack;
         private int _attackChance;

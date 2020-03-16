@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using RogueSharpSamples.SadConsoleV8NetCore.Interfaces;
+using RogueSharpSample2.Interfaces;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Systems
+namespace RogueSharpSample2.Systems
 {
     public class SchedulingSystem
     {

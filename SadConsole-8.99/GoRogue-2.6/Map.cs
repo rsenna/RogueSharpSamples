@@ -1,11 +1,10 @@
-﻿using System;
+﻿using System.Linq;
+using GoRogueSample3.Entities;
+using GoRogueSample3.Tiles;
 using Microsoft.Xna.Framework;
-using SadConsoleRLTutorial.Tiles;
 using SadConsole;
-using SadConsoleRLTutorial.Entities;
-using System.Linq;
 
-namespace SadConsoleRLTutorial
+namespace GoRogueSample3
 {
     // Stores, manipulates and queries Tile data
     public class Map

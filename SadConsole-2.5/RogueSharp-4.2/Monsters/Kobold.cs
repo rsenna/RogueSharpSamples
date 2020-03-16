@@ -1,7 +1,7 @@
 ﻿using RogueSharp.DiceNotation;
-using RogueSharpSamples.LegacySadConsole.Core;
+using RogueSharpSample1.Core;
 
-namespace RogueSharpSamples.LegacySadConsole.Monsters
+namespace RogueSharpSample1.Monsters
 {
     public class Kobold : Monster
     {

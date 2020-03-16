@@ -1,4 +1,4 @@
-﻿namespace RogueSharpSamples.SadConsoleV8NetCore.Equipment
+﻿namespace RogueSharpSample2.Equipment
 {
     public class FeetEquipment : Core.Equipment
     {

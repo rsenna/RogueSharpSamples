@@ -1,6 +1,6 @@
-﻿using RogueSharpSamples.SadConsoleV8NetCore.Equipment;
+﻿using RogueSharpSample2.Equipment;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Systems
+namespace RogueSharpSample2.Systems
 {
     public class EquipmentGenerator
     {

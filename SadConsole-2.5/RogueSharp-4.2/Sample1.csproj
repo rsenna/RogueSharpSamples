@@ -7,8 +7,8 @@
     <ProjectGuid>{6294F96D-6977-4A46-9516-ED5D009AC6D7}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RogueSharpSamples.LegacySadConsole</RootNamespace>
-    <AssemblyName>RogueSharpSamples.LegacySadConsole</AssemblyName>
+    <RootNamespace>RogueSharpSample1</RootNamespace>
+    <AssemblyName>Sample1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>8</LangVersion>

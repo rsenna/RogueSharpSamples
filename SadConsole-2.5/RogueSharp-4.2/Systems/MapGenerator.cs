@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using RogueSharp;
 using RogueSharp.DiceNotation;
-using RogueSharpSamples.LegacySadConsole.Core;
+using RogueSharpSample1.Core;
 
-namespace RogueSharpSamples.LegacySadConsole.Systems
+namespace RogueSharpSample1.Systems
 {
     public class MapGenerator
     {

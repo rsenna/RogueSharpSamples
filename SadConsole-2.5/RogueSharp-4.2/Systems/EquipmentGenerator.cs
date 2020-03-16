@@ -1,6 +1,6 @@
-﻿using RogueSharpSamples.LegacySadConsole.Equipment;
+﻿using RogueSharpSample1.Equipment;
 
-namespace RogueSharpSamples.LegacySadConsole.Systems
+namespace RogueSharpSample1.Systems
 {
     public class EquipmentGenerator
     {

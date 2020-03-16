@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
-namespace SadConsoleRLTutorial.Entities
+namespace GoRogueSample3.Entities
 {
     // Item: Describes things that can be picked up or used
     // by actors, or destroyed on the map.
@@ -44,7 +43,7 @@ namespace SadConsoleRLTutorial.Entities
         // out of memory automatically.
         public void Destroy()
         {
-            GameLoop.World.CurrentMap.Remove(this);
+            Program.World.CurrentMap.Remove(this);
         }
     }
 }

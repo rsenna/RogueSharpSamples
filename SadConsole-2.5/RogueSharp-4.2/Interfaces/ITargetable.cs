@@ -1,6 +1,6 @@
 ﻿using RogueSharp;
 
-namespace RogueSharpSamples.LegacySadConsole.Interfaces
+namespace RogueSharpSample1.Interfaces
 {
     public interface ITargetable
     {

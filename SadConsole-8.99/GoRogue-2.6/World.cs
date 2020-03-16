@@ -1,10 +1,9 @@
 ﻿using System;
-using SadConsoleRLTutorial.Entities;
-using SadConsole;
+using GoRogueSample3.Entities;
+using GoRogueSample3.Tiles;
 using Microsoft.Xna.Framework;
-using SadConsole.Components;
 
-namespace SadConsoleRLTutorial
+namespace GoRogueSample3
 {
     // All game state data is stored in World
     // also creates and processes generators

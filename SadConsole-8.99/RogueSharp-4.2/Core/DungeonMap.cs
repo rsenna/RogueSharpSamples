@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using RogueSharp;
-using RogueSharpSamples.SadConsoleV8NetCore.Interfaces;
+using RogueSharpSample2.Interfaces;
 using SadConsole;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Core
+namespace RogueSharpSample2.Core
 {
     public class DungeonMap : Map
     {

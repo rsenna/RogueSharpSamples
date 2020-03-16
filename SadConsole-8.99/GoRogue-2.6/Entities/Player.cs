@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
-namespace SadConsoleRLTutorial.Entities
+namespace GoRogueSample3.Entities
 {
     // Creates a new player
     // Default colour is LightYellow and glyph is @

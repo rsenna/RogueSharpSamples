@@ -1,8 +1,8 @@
 ﻿using RogueSharp;
 using RogueSharp.Random;
-using RogueSharpSamples.SadConsoleV8NetCore.Core;
+using RogueSharpSample2.Core;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Items
+namespace RogueSharpSample2.Items
 {
     public class DestructionWand : Item
     {

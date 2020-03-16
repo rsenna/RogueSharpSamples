@@ -1,10 +1,10 @@
 ﻿using System;
+using GoRogueSample3.Entities;
 using Microsoft.Xna.Framework;
 using SadConsole;
 using SadConsole.Controls;
-using SadConsoleRLTutorial.Entities;
 
-namespace SadConsoleRLTutorial.UI
+namespace GoRogueSample3.UI
 {
     // Creates/Holds/Destroys all consoles used in the game
     // and makes consoles easily addressable from a central place.
@@ -30,7 +30,7 @@ namespace SadConsoleRLTutorial.UI
         public void CreateConsoles()
         {
             // Temporarily create a console with *no* tile data that will later be replaced with map data
-            MapConsole = new ScrollingConsole(GameLoop.GameWidth, GameLoop.GameHeight);
+            MapConsole = new ScrollingConsole(Program.GameWidth, Program.GameHeight);
         }
 
         // centers the viewport camera on an Actor
@@ -60,46 +60,46 @@ namespace SadConsoleRLTutorial.UI
             // Decrement player's Y coordinate by 1
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Up))
             {
-                GameLoop.CommandManager.MoveActorBy(GameLoop.World.Player, new Point(0, -1));
-                CenterOnActor(GameLoop.World.Player);
+                Program.CommandManager.MoveActorBy(Program.World.Player, new Point(0, -1));
+                CenterOnActor(Program.World.Player);
             }
 
             // Keyboard movement for Player character: Down arrow
             // Increment player's Y coordinate by 1
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Down))
             {
-                GameLoop.CommandManager.MoveActorBy(GameLoop.World.Player, new Point(0, 1));
-                CenterOnActor(GameLoop.World.Player);
+                Program.CommandManager.MoveActorBy(Program.World.Player, new Point(0, 1));
+                CenterOnActor(Program.World.Player);
             }
 
             // Keyboard movement for Player character: Left arrow
             // Decrement player's X coordinate by 1
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Left))
             {
-                GameLoop.CommandManager.MoveActorBy(GameLoop.World.Player, new Point(-1, 0));
-                CenterOnActor(GameLoop.World.Player);
+                Program.CommandManager.MoveActorBy(Program.World.Player, new Point(-1, 0));
+                CenterOnActor(Program.World.Player);
             }
 
             // Keyboard movement for Player character: Right arrow
             // Increment player's X coordinate by 1
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Right))
             {
-                GameLoop.CommandManager.MoveActorBy(GameLoop.World.Player, new Point(1, 0));
-                CenterOnActor(GameLoop.World.Player);
+                Program.CommandManager.MoveActorBy(Program.World.Player, new Point(1, 0));
+                CenterOnActor(Program.World.Player);
             }
 
             // Undo last command: Z
             if (SadConsole.Global.KeyboardState.IsKeyReleased(Microsoft.Xna.Framework.Input.Keys.Z))
             {
-                GameLoop.CommandManager.UndoMoveActorBy();
-                CenterOnActor(GameLoop.World.Player);
+                Program.CommandManager.UndoMoveActorBy();
+                CenterOnActor(Program.World.Player);
             }
 
             // Repeat last command: X
             if (SadConsole.Global.KeyboardState.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.X))
             {
-                GameLoop.CommandManager.RedoMoveActorBy();
-                CenterOnActor(GameLoop.World.Player);
+                Program.CommandManager.RedoMoveActorBy();
+                CenterOnActor(Program.World.Player);
             }
         }
 
@@ -110,10 +110,10 @@ namespace SadConsoleRLTutorial.UI
             CreateConsoles();
 
             //Message Log initialization
-            MessageLog = new MessageLogWindow(GameLoop.GameWidth, GameLoop.GameHeight / 2, "Message Log");
+            MessageLog = new MessageLogWindow(Program.GameWidth, Program.GameHeight / 2, "Message Log");
             Children.Add(MessageLog);
             MessageLog.Show();
-            MessageLog.Position = new Point(0, GameLoop.GameHeight / 2);
+            MessageLog.Position = new Point(0, Program.GameHeight / 2);
 
             MessageLog.Add("Testing 123");
             MessageLog.Add("Testing 123");
@@ -132,14 +132,14 @@ namespace SadConsoleRLTutorial.UI
             MessageLog.Add("Testing Last");
 
             // Load the map into the MapConsole
-            LoadMap(GameLoop.World.CurrentMap);
+            LoadMap(Program.World.CurrentMap);
 
             // Now that the MapConsole is ready, build the Window
-            CreateMapWindow(GameLoop.GameWidth / 2, GameLoop.GameHeight / 2, "Game Map");
+            CreateMapWindow(Program.GameWidth / 2, Program.GameHeight / 2, "Game Map");
             UseMouse = true;
 
             // Start the game with the camera focused on the player
-            CenterOnActor(GameLoop.World.Player);
+            CenterOnActor(Program.World.Player);
         }
 
         // Adds the entire list of entities found in the
@@ -179,7 +179,7 @@ namespace SadConsoleRLTutorial.UI
         private void LoadMap(Map map)
         {
             // First load the map's tiles into the console
-            MapConsole = new SadConsole.ScrollingConsole(GameLoop.World.CurrentMap.Width, GameLoop.World.CurrentMap.Height, Global.FontDefault, new Rectangle(0, 0, GameLoop.GameWidth, GameLoop.GameHeight), map.Tiles);
+            MapConsole = new SadConsole.ScrollingConsole(Program.World.CurrentMap.Width, Program.World.CurrentMap.Height, Global.FontDefault, new Rectangle(0, 0, Program.GameWidth, Program.GameHeight), map.Tiles);
 
             // Now Sync all of the map's entities
             SyncMapEntities(map);

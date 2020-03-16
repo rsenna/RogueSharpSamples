@@ -1,6 +1,6 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-namespace SadConsoleRLTutorial.Tiles
+﻿using Microsoft.Xna.Framework;
+
+namespace GoRogueSample3.Tiles
 {
     // TileFloor is based on TileBase
     // Floor tiles to be used in maps.

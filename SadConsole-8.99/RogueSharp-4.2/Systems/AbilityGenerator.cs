@@ -1,7 +1,7 @@
-﻿using RogueSharpSamples.SadConsoleV8NetCore.Abilities;
-using RogueSharpSamples.SadConsoleV8NetCore.Core;
+﻿using RogueSharpSample2.Abilities;
+using RogueSharpSample2.Core;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Systems
+namespace RogueSharpSample2.Systems
 {
     public static class AbilityGenerator
     {

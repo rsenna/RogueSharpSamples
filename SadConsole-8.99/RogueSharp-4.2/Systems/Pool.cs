@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using RogueSharp.Random;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Systems
+namespace RogueSharpSample2.Systems
 {
     public class Pool<T>
     {

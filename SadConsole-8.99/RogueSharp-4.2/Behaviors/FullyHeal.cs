@@ -1,8 +1,8 @@
-﻿using RogueSharpSamples.SadConsoleV8NetCore.Core;
-using RogueSharpSamples.SadConsoleV8NetCore.Interfaces;
-using RogueSharpSamples.SadConsoleV8NetCore.Systems;
+﻿using RogueSharpSample2.Core;
+using RogueSharpSample2.Interfaces;
+using RogueSharpSample2.Systems;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Behaviors
+namespace RogueSharpSample2.Behaviors
 {
     public class FullyHeal : IBehavior
     {

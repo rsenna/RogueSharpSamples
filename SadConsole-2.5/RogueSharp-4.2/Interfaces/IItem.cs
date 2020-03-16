@@ -1,4 +1,4 @@
-﻿namespace RogueSharpSamples.LegacySadConsole.Interfaces
+﻿namespace RogueSharpSample1.Interfaces
 {
     public interface IItem
     {

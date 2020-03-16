@@ -1,8 +1,8 @@
 using RogueSharp;
-using RogueSharpSamples.LegacySadConsole.Core;
-using RogueSharpSamples.LegacySadConsole.Monsters;
+using RogueSharpSample1.Core;
+using RogueSharpSample1.Monsters;
 
-namespace RogueSharpSamples.LegacySadConsole.Systems
+namespace RogueSharpSample1.Systems
 {
     public static class ActorGenerator
     {

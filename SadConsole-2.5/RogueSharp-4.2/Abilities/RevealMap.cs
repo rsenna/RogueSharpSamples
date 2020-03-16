@@ -1,6 +1,6 @@
-﻿using RogueSharpSamples.LegacySadConsole.Core;
+﻿using RogueSharpSample1.Core;
 
-namespace RogueSharpSamples.LegacySadConsole.Abilities
+namespace RogueSharpSample1.Abilities
 {
     public class RevealMap : Ability
     {

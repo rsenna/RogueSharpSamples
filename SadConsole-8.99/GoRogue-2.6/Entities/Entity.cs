@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using SadConsole.Components;
 
-namespace SadConsoleRLTutorial.Entities
+namespace GoRogueSample3.Entities
 {
     // Extends the SadConsole.Entities.Entity class
     // by adding an ID to it using GoRogue's ID system

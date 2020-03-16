@@ -1,6 +1,6 @@
-﻿using RogueSharpSamples.LegacySadConsole.Core;
+﻿using RogueSharpSample1.Core;
 
-namespace RogueSharpSamples.LegacySadConsole.Items
+namespace RogueSharpSample1.Items
 {
     public class NoItem : Item
     {

@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using SadConsole;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using SadConsole.Input;
+using SadConsole;
 
-namespace SadConsoleRLTutorial.UI
+namespace GoRogueSample3.UI
 {
     //A scrollable window that displays messages
     //using a FIFO (first-in-first-out) Queue data structure

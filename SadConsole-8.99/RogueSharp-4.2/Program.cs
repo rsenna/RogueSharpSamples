@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using SadConsole;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore
+namespace RogueSharpSample2
 {
     public static class Program
     {

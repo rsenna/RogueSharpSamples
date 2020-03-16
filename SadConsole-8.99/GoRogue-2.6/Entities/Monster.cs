@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace SadConsoleRLTutorial.Entities
+namespace GoRogueSample3.Entities
 {
     //A generic monster capable of
     //combat and interaction

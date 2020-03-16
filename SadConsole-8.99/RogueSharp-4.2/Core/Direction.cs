@@ -1,4 +1,4 @@
-namespace RogueSharpSamples.SadConsoleV8NetCore.Core
+namespace RogueSharpSample2.Core
 {
     // Direction values correspond to numpad numbers
     public enum Direction

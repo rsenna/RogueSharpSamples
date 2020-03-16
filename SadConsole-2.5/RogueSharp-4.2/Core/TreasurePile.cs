@@ -1,6 +1,6 @@
-﻿using RogueSharpSamples.LegacySadConsole.Interfaces;
+﻿using RogueSharpSample1.Interfaces;
 
-namespace RogueSharpSamples.LegacySadConsole.Core
+namespace RogueSharpSample1.Core
 {
     public class TreasurePile
     {

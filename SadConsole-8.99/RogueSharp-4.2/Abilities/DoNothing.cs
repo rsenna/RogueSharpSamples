@@ -1,6 +1,6 @@
-﻿using RogueSharpSamples.SadConsoleV8NetCore.Core;
+﻿using RogueSharpSample2.Core;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Abilities
+namespace RogueSharpSample2.Abilities
 {
     public class DoNothing : Ability
     {

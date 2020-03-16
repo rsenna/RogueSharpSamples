@@ -1,7 +1,7 @@
-﻿using RogueSharpSamples.LegacySadConsole.Abilities;
-using RogueSharpSamples.LegacySadConsole.Core;
+﻿using RogueSharpSample1.Abilities;
+using RogueSharpSample1.Core;
 
-namespace RogueSharpSamples.LegacySadConsole.Items
+namespace RogueSharpSample1.Items
 {
     public class HealingPotion : Item
     {

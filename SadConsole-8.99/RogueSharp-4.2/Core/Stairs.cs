@@ -1,7 +1,7 @@
 ﻿using RogueSharp;
 using SadConsole;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Core
+namespace RogueSharpSample2.Core
 {
     public class Stairs
     {

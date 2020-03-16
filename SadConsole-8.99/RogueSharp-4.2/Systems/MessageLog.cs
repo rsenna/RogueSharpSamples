@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using SadConsole;
 
-namespace RogueSharpSamples.SadConsoleV8NetCore.Systems
+namespace RogueSharpSample2.Systems
 {
     public class MessageLog
     {

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using SadConsole;
 
-namespace SadConsoleRLTutorial
+namespace GoRogueSample3.Tiles
 {
 
     public abstract class TileBase : Cell

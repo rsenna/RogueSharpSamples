@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace SadConsoleRLTutorial.Entities
+namespace GoRogueSample3.Entities
 {
     public abstract class Actor : Entity
     {
@@ -25,22 +24,22 @@ namespace SadConsoleRLTutorial.Entities
         public bool MoveBy(Point positionChange)
         {
             // Check the current map if we can move to this new position
-            if (GameLoop.World.CurrentMap.IsTileWalkable(Position + positionChange))
+            if (Program.World.CurrentMap.IsTileWalkable(Position + positionChange))
             {
                 // if there's a monster here,
                 // do a bump attack
-                Monster monster = GameLoop.World.CurrentMap.GetEntityAt<Monster>(Position + positionChange);
-                Item item = GameLoop.World.CurrentMap.GetEntityAt<Item>(Position + positionChange);
+                Monster monster = Program.World.CurrentMap.GetEntityAt<Monster>(Position + positionChange);
+                Item item = Program.World.CurrentMap.GetEntityAt<Item>(Position + positionChange);
                 if (monster != null)
                 {
-                    GameLoop.CommandManager.Attack(this, monster);
+                    Program.CommandManager.Attack(this, monster);
                     return true;
                 }
                 // if there's an item here,
                 // try to pick it up
                 else if (item != null)
                 {
-                    GameLoop.CommandManager.Pickup(this, item);
+                    Program.CommandManager.Pickup(this, item);
                     return true;
                 }
 
