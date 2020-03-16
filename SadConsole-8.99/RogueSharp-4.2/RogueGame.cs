@@ -23,7 +23,7 @@ namespace RogueSharpSample2
         private const int InventoryWidth = 80;
         private const int InventoryHeight = 11;
 
-        private static Console _mainConsole;
+        private static Console _mainContainer;
         private static Console _mapConsole;
         private static Console _messageConsole;
         private static Console _statConsole;
@@ -35,15 +35,13 @@ namespace RogueSharpSample2
         private static InputState _inputState;
 
         public RogueGame()
-            : base(string.Empty, ScreenWidth, ScreenHeight, null)
+            : base("Fonts/Cheepicus12.font", ScreenWidth + 2, ScreenHeight + 2, null)
         {
-            const string consoleTitle = "RogueSharp SadConsole Example Game - Level 1";
-
             var seed = (int) DateTime.UtcNow.Ticks;
             Random = new DotNetRandom(seed);
 
             MessageLog = new MessageLog();
-            MessageLog.Add("The rogue arrives on level 1");
+            MessageLog.Add($"The rogue arrives on level {_mapLevel}");
             MessageLog.Add($"Level created with seed '{seed}'");
 
             Player = new Player();
@@ -60,8 +58,6 @@ namespace RogueSharpSample2
 
             _inputState = new InputState();
 
-            Window.Title = consoleTitle;
-
             Content.RootDirectory = "Content";
         }
 
@@ -75,34 +71,37 @@ namespace RogueSharpSample2
 
         protected override void Initialize()
         {
-            IsMouseVisible = true;
-
             base.Initialize();
 
-            // TODO: Fix font
-            var fontMaster = Global.LoadFont("Fonts/Cheepicus12.font");
-            Global.FontDefault = fontMaster.GetFont(Font.FontSizes.One);
+            IsMouseVisible = true;
 
-            _mainConsole = new ContainerConsole();
+            RefreshTitle();
+            Window.Position = new Point(100, 100);
+            Window.AllowUserResizing = false;
+
+            _mainContainer = new ContainerConsole();
             _mapConsole = new Console(MapWidth, MapHeight);
             _messageConsole = new Console(MessageWidth, MessageHeight);
             _statConsole = new Console(StatWidth, StatHeight);
             _inventoryConsole = new Console(InventoryWidth, InventoryHeight);
 
+            _mainContainer.Position = new Point(1, 1);
             _mapConsole.Position = new Point(0, InventoryHeight);
             _messageConsole.Position = new Point(0, ScreenHeight - MessageHeight);
             _statConsole.Position = new Point(MapWidth, 0);
             _inventoryConsole.Position = new Point(0, 0);
 
-            _mainConsole.Children.Add(_mapConsole);
-            _mainConsole.Children.Add(_messageConsole);
-            _mainConsole.Children.Add(_statConsole);
-            _mainConsole.Children.Add(_inventoryConsole);
+            _mainContainer.Children.Add(_mapConsole);
+            _mainContainer.Children.Add(_messageConsole);
+            _mainContainer.Children.Add(_statConsole);
+            _mainContainer.Children.Add(_inventoryConsole);
 
-            _mainConsole.UseMouse = true;
-            _mainConsole.UseKeyboard = true;
+            _mainContainer.IsVisible = true;
+            _mainContainer.IsFocused = true;
+            _mainContainer.UseMouse = true;
+            _mainContainer.UseKeyboard = true;
 
-            Global.CurrentScreen = _mainConsole;
+            _mainContainer.Parent = Global.CurrentScreen;
         }
 
         // TODO: Monsters seem to move slowly, improve
@@ -139,7 +138,7 @@ namespace RogueSharpSample2
 
                         MessageLog = new MessageLog();
                         CommandSystem = new CommandSystem();
-                        Window.Title = $"RogueSharp SadConsole Example Game - Level {_mapLevel}";
+                        RefreshTitle();
                     }
 
                     CommandSystem.EndPlayerTurn();
@@ -172,5 +171,8 @@ namespace RogueSharpSample2
                 base.Draw(gameTime);
             }
         }
+
+        private string RefreshTitle()
+            => Window.Title = $"RogueSharp SadConsole Example Game - Level {_mapLevel}";
     }
 }
